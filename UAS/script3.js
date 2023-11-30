@@ -48,26 +48,26 @@ class TaskManager {
     }
   }
   
-  class Task {
-    constructor(description) {
-      let _description = description;
+ class Task {
+  constructor(description) {
+    this._description = description; // Menyimpan sebagai properti this
   
-      this.getDescription = function() {
-        return _description;
-      };
+    this.getDescription = function() {
+      return this._description; // Mengakses properti this
+    };
   
-      this.render = function() {
-        const li = document.createElement("li");
-        li.textContent = _description;
+    this.render = function() {
+      const li = document.createElement("li");
+      li.textContent = this._description; // Mengakses properti this
+
+      const span = document.createElement("span");
+      span.textContent = "\u00d7";
   
-        const span = document.createElement("span");
-        span.textContent = "\u00d7";
-  
-        li.appendChild(span);
-        return li;
-      };
-    }
+      li.appendChild(span);
+      return li;
+    };
   }
-  
+}
+
   const taskManager = new TaskManager("input-box", "list-container");
   
